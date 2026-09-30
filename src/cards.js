@@ -140,23 +140,86 @@
     return row;
   }
 
-  let gifIO = null;
-  function gifObserver() {
-    if (!gifIO) {
-      gifIO = new IntersectionObserver(
+  // ---- video autoplay -------------------------------------------------------------
+  // One IntersectionObserver drives every video (grid, compact thread posts, drawer
+  // focal): play while at least a quarter is on screen, pause when it leaves.
+  // The grid keeps its cards cached and detaches them when a filter hides them, so a
+  // detached video is dropped here (the observer never holds a dead node) and
+  // watchVideos() re-arms it when masonry places its card again.
+  const watched = new Set();
+  let videoIO = null;
+
+  function playVideo(v) {
+    try {
+      const p = v.play();
+      if (p && p.catch) p.catch(() => {}); // autoplay refused: the poster stays up
+    } catch {}
+  }
+
+  function unwatchVideo(v) {
+    v.pause();
+    watched.delete(v);
+    if (videoIO) videoIO.unobserve(v);
+  }
+
+  function videoObserver() {
+    if (!videoIO) {
+      videoIO = new IntersectionObserver(
         (entries) => {
           for (const e of entries) {
             const v = e.target;
-            if (e.isIntersecting) {
-              const p = v.play();
-              if (p && p.catch) p.catch(() => {});
-            } else v.pause();
+            if (!v.isConnected) unwatchVideo(v);
+            else if (e.isIntersecting) playVideo(v);
+            else v.pause();
           }
         },
         { threshold: 0.25 }
       );
     }
-    return gifIO;
+    return videoIO;
+  }
+
+  function watchVideo(v) {
+    watched.add(v);
+    videoObserver().observe(v);
+  }
+
+  // (Re)observe every video inside these elements. Idempotent.
+  function watchVideos(els) {
+    for (const e of els || []) {
+      if (e && e.querySelectorAll) for (const v of e.querySelectorAll("video")) watchVideo(v);
+    }
+  }
+
+  // Drop every watched video that has left the document.
+  function sweepVideos() {
+    for (const v of watched) if (!v.isConnected) unwatchVideo(v);
+  }
+
+  // Every video we render is silent, looping and inline; the observer starts it.
+  function silentLoop(v) {
+    v.muted = true;
+    v.defaultMuted = true; // reflects the `muted` attribute too
+    v.loop = true;
+    v.playsInline = true;
+  }
+
+  const GRID_MIN_BITRATE = 800000;
+
+  // Grid and compact-post source: the lowest mp4 variant at or above 800 kbps
+  // (sharp enough for a column, cheap enough to run many at once), else the highest
+  // available. Order-independent. A GIF's single variant falls out of the same rule.
+  function gridVariant(m) {
+    let lo = null;
+    let hi = null;
+    for (const x of m.variants || []) {
+      if (!x || !x.url) continue;
+      const b = Number(x.bitrate) || 0;
+      if (!hi || b > hi.b) hi = { b, url: x.url };
+      if (b >= GRID_MIN_BITRATE && (!lo || b < lo.b)) lo = { b, url: x.url };
+    }
+    const pick = lo || hi;
+    return pick ? pick.url : null;
   }
 
   function photoImg(src, size, alt) {
@@ -171,32 +234,26 @@
     return img;
   }
 
-  // One cell of the grid-card / compact-post media layout.
+  // One cell of the grid-card / compact-post media layout. Videos and GIFs are
+  // muted looping <video>s that the observer plays; a variant-less one falls back
+  // to its poster image.
   function gridCell(m, size) {
     const cell = el("div", "xg-cell");
-    if (m.type === "gif" && m.variants && m.variants.length) {
+    const src = m.type === "video" || m.type === "gif" ? gridVariant(m) : null;
+    if (src) {
       const v = el("video", "xg-vid");
-      v.muted = true;
-      v.loop = true;
-      v.playsInline = true;
+      silentLoop(v);
       v.preload = "none";
       v.poster = XG.parse.photoUrl(m.src, size);
-      v.src = m.variants[0].url;
+      v.src = src;
       if (m.alt) v.setAttribute("aria-label", m.alt);
       cell.appendChild(v);
-      cell.appendChild(el("span", "xg-badge xg-l", "GIF"));
-      gifObserver().observe(v);
-      return cell;
+      watchVideo(v);
+    } else {
+      cell.appendChild(photoImg(m.src, size, m.alt));
     }
-    cell.appendChild(photoImg(m.src, size, m.alt));
-    if (m.type === "video") {
-      const g = el("span", "xg-playglyph");
-      g.appendChild(icon("play"));
-      cell.appendChild(g);
-      if (m.durationMs) cell.appendChild(el("span", "xg-badge xg-r", fmtDuration(m.durationMs)));
-    } else if (m.type === "gif") {
-      cell.appendChild(el("span", "xg-badge xg-l", "GIF"));
-    }
+    if (m.type === "gif") cell.appendChild(el("span", "xg-badge xg-l", "GIF"));
+    else if (m.type === "video" && m.durationMs) cell.appendChild(el("span", "xg-badge xg-r", fmtDuration(m.durationMs)));
     return cell;
   }
 
@@ -225,18 +282,6 @@
           onPhoto(post, post.media.indexOf(m));
         });
       });
-    }
-    if (post.sensitive) {
-      box.classList.add("xg-sensitive");
-      const b = el("button", "xg-show", "Show");
-      b.type = "button";
-      b.setAttribute("aria-label", "Show sensitive media");
-      b.addEventListener("click", (e) => {
-        e.stopPropagation();
-        box.classList.remove("xg-sensitive");
-        b.remove();
-      });
-      box.appendChild(b);
     }
     return box;
   }
@@ -497,21 +542,18 @@
         }
       } else {
         const v = el("video");
-        v.playsInline = true;
+        silentLoop(v);
         v.poster = XG.parse.photoUrl(m.src, "large");
         v.style.aspectRatio = ratio;
         v.src = src;
+        item.appendChild(v);
         if (m.type === "gif") {
-          v.muted = true;
-          v.loop = true;
-          v.autoplay = true;
-          item.appendChild(v);
           item.appendChild(el("span", "xg-badge xg-l", "GIF"));
         } else {
-          v.controls = true;
+          v.controls = true; // unmuting is the user's call
           v.preload = "metadata";
-          item.appendChild(v);
         }
+        watchVideo(v);
       }
       wrap.appendChild(item);
     });
@@ -611,6 +653,9 @@
     safeHref,
     openTab,
     pickVariant,
+    gridVariant,
+    watchVideos,
+    sweepVideos,
     fmtCount,
     fmtTime,
     fmtFull,

@@ -121,16 +121,6 @@ img,video{max-width:100%}
   font-size:11px;font-weight:700;line-height:17px;letter-spacing:.02em;font-variant-numeric:tabular-nums;pointer-events:none}
 .xg-badge.xg-r{right:6px}
 .xg-badge.xg-l{left:6px}
-.xg-playglyph{position:absolute;left:50%;top:50%;width:38px;height:38px;margin:-19px 0 0 -19px;display:grid;
-  place-items:center;border-radius:50%;background:rgba(0,0,0,.6);color:#fff;pointer-events:none;
-  box-shadow:0 0 0 1.5px rgba(255,255,255,.7)}
-.xg-playglyph .xg-ic{width:18px;height:18px;margin-left:2px}
-.xg-sensitive .xg-cell>*{filter:blur(22px) saturate(.75);transform:scale(1.18)}
-.xg-sensitive .xg-badge,.xg-sensitive .xg-playglyph{display:none}
-.xg-show{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;height:28px;padding:0 14px;
-  border:1px solid rgba(255,255,255,.35);border-radius:999px;background:rgba(0,0,0,.62);color:#fff;font-size:12px;
-  font-weight:700;cursor:pointer;transition:background-color .15s}
-.xg-show:hover{background:rgba(0,0,0,.8)}
 
 .xg-body{display:flex;flex-direction:column;gap:6px;padding:8px 10px 9px;min-width:0}
 .xg-repostline{display:flex;align-items:center;gap:5px;font-size:11px;line-height:14px;color:var(--muted);font-weight:600;

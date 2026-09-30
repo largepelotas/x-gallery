@@ -216,12 +216,14 @@
       const node = C.renderThread(focal, cardOpts("focal"));
       reg(focal.id, node);
       focalWrap.replaceChildren(node);
+      C.sweepVideos();
     }
 
     function renderAncestors() {
       for (const n of ancRendered) unreg(n.dataset.id, n);
       ancRendered = model.ancestors.map(makeCompact);
       ancEl.replaceChildren(...ancRendered);
+      C.sweepVideos();
     }
 
     function syncGroups() {
@@ -356,6 +358,7 @@
         ancRendered = [];
         focal = null;
         model = null;
+        C.sweepVideos();
       }, CLOSE_CLEAR_MS);
       const back = prevFocus;
       prevFocus = null;

@@ -124,7 +124,26 @@
     shadow.append(root, pill);
     document.documentElement.appendChild(host);
 
-    const masonry = XG.createMasonry(grid, { columns: opts.columns || 4, gap: 8, scroller });
+    const rawMasonry = XG.createMasonry(grid, { columns: opts.columns || 4, gap: 8, scroller });
+    // Cards hidden by a filter stay cached but leave the document, and the video
+    // observer drops detached videos. Re-arm them whenever cards are placed, and
+    // release the ones a reset threw away.
+    const masonry = {
+      ...rawMasonry,
+      append(els) {
+        rawMasonry.append(els);
+        XG.cards.watchVideos(els);
+      },
+      relayout(els) {
+        rawMasonry.relayout(els);
+        XG.cards.sweepVideos();
+        XG.cards.watchVideos(els);
+      },
+      clear() {
+        rawMasonry.clear();
+        XG.cards.sweepVideos();
+      },
+    };
 
     // ---- state -------------------------------------------------------------------------
     let visible = false;

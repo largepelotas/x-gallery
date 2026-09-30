@@ -335,13 +335,17 @@ The grid card is media-first and compact:
   - 4 items: a 2×2 grid of squares.
   - Photos: `photoUrl(src, colWidth > 340 ? "medium" : "small")`, with
     `loading="lazy"` and `decoding="async"`.
-  - Video: the poster, a play glyph and a duration badge. It doesn't play in
-    the grid.
-  - GIF: a `<video muted loop playsinline>` using the first variant. It plays
-    only while intersecting (one shared IntersectionObserver) and carries a
-    "GIF" badge.
-  - `sensitive`: CSS blur plus a small "Show" button that un-blurs without
-    opening the drawer.
+  - Video and GIF: a `<video muted loop playsinline preload="none">` with the
+    poster as `poster`. It **autoplays while intersecting** and pauses when
+    it leaves. One shared IntersectionObserver (threshold 0.25) handles every
+    grid, drawer and thread video.
+    - `play()` rejections are swallowed. A video that can't autoplay just
+      shows its poster.
+    - Grid source: the lowest mp4 variant at ≥ 800 kbps, else the highest
+      available. GIFs use their only variant.
+    - Badges: a duration badge for video, "GIF" for GIFs. No play glyph.
+  - `sensitive` media is shown like any other, with no blur. The flag is
+    still parsed but the UI ignores it.
 - **Meta row** (one line, 20 px avatar): name (bold, truncated), `@handle`
   (muted, truncated), `· 3h`. A reply shows a small reply glyph. A repost
   gets a one-line 11 px "↻ <name> reposted" above the meta row.
@@ -378,8 +382,9 @@ The deps it takes are listed in the header of `src/drawer.js`.
 - Body, in order:
   - ancestors: compact posts
   - the focal post, large: all media at natural ratio, `photoUrl(…, "large")`,
-    video with `controls playsinline preload="metadata"` and the highest mp4
-    variant ≤ 2.5 Mbps, full text with real links (`target="_blank"`,
+    video with `controls muted loop playsinline preload="metadata"` and the
+    highest mp4 variant ≤ 2.5 Mbps, autoplaying through the shared observer
+    (unmuting is the user's call, via the controls), full text with real links (`target="_blank"`,
     `rel="noopener"`; `http(s)` or site-relative only), full timestamp
     `3:04 PM · Apr 3, 2025`, full metrics, and the action bar
   - reply groups: each module's posts compact, joined by a thin vertical line
