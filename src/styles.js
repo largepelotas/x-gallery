@@ -90,7 +90,7 @@ img,video{max-width:100%}
   box-shadow:0 8px 22px rgba(29,155,240,.42);animation:xg-drop .22s ease-out}
 .xg-newbtn:hover{filter:brightness(1.08)}
 .xg-newbtn .xg-ic{width:15px;height:15px;stroke-width:2.4}
-.xg-pill{position:absolute;right:20px;bottom:76px;pointer-events:auto;display:inline-flex;align-items:center;gap:8px;
+.xg-pill{position:absolute;right:20px;bottom:160px;pointer-events:auto;display:inline-flex;align-items:center;gap:8px;
   height:40px;padding:0 16px 0 12px;border-radius:999px;border:1px solid var(--border-hi);background:var(--bg);
   color:var(--text);font:700 13px/1 TwitterChirp,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
   box-shadow:var(--shadow);cursor:pointer;transition:border-color .15s,background-color .15s}
