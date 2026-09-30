@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "X Gallery",
+  "version": "0.1.0",
+  "description": "A masonry gallery overlay for the x.com home timeline. Reads only what X already loads.",
+  "permissions": ["storage"],
+  "content_scripts": [
+    {
+      "matches": ["https://x.com/*"],
+      "js": ["src/hook.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    },
+    {
+      "matches": ["https://x.com/*"],
+      "js": [
+        "src/parse.js",
+        "src/store.js",
+        "src/settings.js",
+        "src/env.js",
+        "src/native.js",
+        "src/icons.js",
+        "src/styles.js",
+        "src/masonry.js",
+        "src/cards.js",
+        "src/drawer.js",
+        "src/overlay.js",
+        "src/content.js"
+      ],
+      "run_at": "document_start"
+    }
+  ]
+}

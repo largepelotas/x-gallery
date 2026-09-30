@@ -1,0 +1,4 @@
+# Agent scratch: notes agents write for each other during a task. Disposable
+# by design, and the easiest place to leak something by accident.
+.agents/scratch/*
+!.agents/scratch/README.md

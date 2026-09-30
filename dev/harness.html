@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>X Gallery harness</title>
+<!--
+  Open this file straight from disk (file://) in Chrome or Brave. No server, no build.
+
+  This page plays X: it fakes the timeline responses (real GraphQL shapes, synthetic data),
+  pagination, thread pages, and X's native like/repost buttons. The extension's own scripts
+  run unmodified on top of it, in the same order as manifest.json.
+
+  The gallery covers this page. Hide it (x in the toolbar) to see the fake X underneath.
+  The debug bar (bottom left) sends "newer posts", switches For you / Following, cycles the
+  theme, and can simulate stalled paging, dead X buttons and threads that never load.
+  Errors show up in the debug bar and the console; "[harness]" lines narrate what X is doing.
+-->
+<style>
+  html, body { margin: 0; min-height: 100%; }
+  body { background: #000; color: #e7e9ea; font: 15px/1.4 -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+  #fx { display: grid; grid-template-columns: 200px minmax(0, 600px); gap: 24px; max-width: 900px; margin: 0 auto; padding: 16px; }
+  #fx-nav { font-size: 20px; font-weight: 700; display: flex; flex-direction: column; gap: 18px; padding-top: 8px; }
+  #fx-nav span { opacity: .85; }
+  #fx-main header { padding: 8px 0 12px; border-bottom: 1px solid #2f3336; }
+  #fx-main h1 { margin: 0; font-size: 20px; }
+  #fx-route { color: #71767b; font-size: 13px; margin-top: 2px; }
+  .fx-hint { color: #8b98a5; font-size: 13px; margin: 10px 0 0; }
+  .fx-article { padding: 12px 4px; border-bottom: 1px solid #2f3336; }
+  .fx-head { display: flex; gap: 6px; align-items: baseline; font-size: 14px; }
+  .fx-name { font-weight: 700; }
+  .fx-handle, .fx-head a { color: #71767b; text-decoration: none; }
+  .fx-text { margin: 4px 0 8px; white-space: pre-wrap; overflow-wrap: anywhere; }
+  .fx-quote { border: 1px solid #2f3336; border-radius: 12px; padding: 8px 10px; margin: 0 0 8px; font-size: 13px; color: #8b98a5; }
+  .fx-quote a { color: #71767b; text-decoration: none; }
+  .fx-acts { display: flex; gap: 10px; }
+  .fx-acts button { background: none; border: 1px solid #2f3336; border-radius: 999px; color: #8b98a5; padding: 3px 10px; font: inherit; font-size: 12px; cursor: pointer; }
+  .fx-acts button[data-testid="unlike"] { color: #f91880; border-color: #f91880; }
+  .fx-acts button[data-testid="unretweet"] { color: #00ba7c; border-color: #00ba7c; }
+  .fx-menu { position: fixed; left: 50%; top: 40%; z-index: 10; background: #16181c; border: 1px solid #2f3336; border-radius: 10px; padding: 8px 14px; }
+  #dbg { position: fixed; left: 12px; bottom: 12px; z-index: 2147483600; display: flex; flex-wrap: wrap; gap: 6px; align-items: center;
+         max-width: calc(100vw - 24px); padding: 6px; border-radius: 10px; background: rgba(20, 22, 26, .94);
+         border: 1px solid #3a3f45; font: 11px/1 system-ui, sans-serif; color: #c8ccd0; }
+  #dbg button { font: inherit; color: #e7e9ea; background: #2a2e33; border: 1px solid #454a50; border-radius: 6px; padding: 5px 8px; cursor: pointer; }
+  #dbg button:hover { background: #363b41; }
+  #dbg label { display: inline-flex; align-items: center; gap: 4px; cursor: pointer; padding: 0 4px; }
+  #dbg .st { color: #8b98a5; font-variant-numeric: tabular-nums; padding: 0 4px; }
+  #dbg .err { color: #fff; background: #b3261e; border-radius: 6px; padding: 4px 8px; }
+</style>
+</head>
+<body>
+<div id="fx">
+  <nav id="fx-nav"><span>Home</span><span>Explore</span><span>Notifications</span><span>Profile</span></nav>
+  <main id="fx-main">
+    <header>
+      <h1>Fake X</h1>
+      <div id="fx-route"></div>
+      <p class="fx-hint">This page plays X underneath the gallery overlay. Hide the gallery (x, top right) to see it.</p>
+    </header>
+    <div id="fx-feed"></div>
+  </main>
+</div>
+
+<!-- chrome.storage.local, in memory, mirrored to localStorage so settings survive a reload.
+     Callback and promise styles both work. -->
+<script>
+(function () {
+  var KEY = "xg-harness:storage";
+  var mem = {};
+  try { mem = JSON.parse(localStorage.getItem(KEY) || "{}") || {}; } catch (e) { mem = {}; }
+  function persist() { try { localStorage.setItem(KEY, JSON.stringify(mem)); } catch (e) {} }
+  function clone(v) { return v === undefined ? undefined : JSON.parse(JSON.stringify(v)); }
+  function reply(cb, value) { if (typeof cb === "function") { cb(value); return undefined; } return Promise.resolve(value); }
+  var local = {
+    get: function (keys, cb) {
+      var out = {}, k;
+      if (keys == null) { for (k in mem) out[k] = clone(mem[k]); }
+      else if (typeof keys === "string") { if (keys in mem) out[keys] = clone(mem[keys]); }
+      else if (Array.isArray(keys)) { keys.forEach(function (x) { if (x in mem) out[x] = clone(mem[x]); }); }
+      else { for (k in keys) out[k] = k in mem ? clone(mem[k]) : keys[k]; }
+      return reply(cb, out);
+    },
+    set: function (items, cb) { for (var k in items) mem[k] = clone(items[k]); persist(); return reply(cb); },
+    remove: function (keys, cb) { [].concat(keys).forEach(function (k) { delete mem[k]; }); persist(); return reply(cb); },
+    clear: function (cb) { mem = {}; persist(); return reply(cb); }
+  };
+  window.chrome = window.chrome || {};
+  window.chrome.runtime = window.chrome.runtime || {};
+  window.chrome.storage = { local: local, onChanged: { addListener: function () {} } };
+})();
+</script>
+
+<!-- The isolated-world scripts, in manifest order. dev/harness.js comes after env.js so it can
+     replace XG.env, and before content.js, which reads it. hook.js is not loaded: the harness
+     plays the hook. -->
+<script src="../src/parse.js"></script>
+<script src="../src/store.js"></script>
+<script src="../src/settings.js"></script>
+<script src="../src/env.js"></script>
+<script src="fake.js"></script>
+<script src="harness.js"></script>
+<script src="../src/native.js"></script>
+<script src="../src/icons.js"></script>
+<script src="../src/styles.js"></script>
+<script src="../src/masonry.js"></script>
+<script src="../src/cards.js"></script>
+<script src="../src/drawer.js"></script>
+<script src="../src/overlay.js"></script>
+<script src="../src/content.js"></script>
+</body>
+</html>

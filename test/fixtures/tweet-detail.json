@@ -1,0 +1,1232 @@
+{
+  "data": {
+    "threaded_conversation_with_injections_v2": {
+      "instructions": [
+        {
+          "type": "TimelineAddEntries",
+          "entries": [
+            {
+              "entryId": "tweet-9000000000000000101",
+              "sortIndex": "7000000000000000500",
+              "content": {
+                "entryType": "TimelineTimelineItem",
+                "__typename": "TimelineTimelineItem",
+                "itemContent": {
+                  "itemType": "TimelineTweet",
+                  "__typename": "TimelineTweet",
+                  "tweet_results": {
+                    "result": {
+                      "__typename": "Tweet",
+                      "rest_id": "9000000000000000101",
+                      "core": {
+                        "user_results": {
+                          "result": {
+                            "__typename": "User",
+                            "id": "VXNlcjoxMDAwMDE=",
+                            "rest_id": "100001",
+                            "affiliates_highlighted_label": {},
+                            "avatar": {
+                              "image_url": "https://pbs.twimg.com/profile_images/FAKEalice/avatar_normal.jpg"
+                            },
+                            "core": {
+                              "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                              "name": "Alice Example",
+                              "screen_name": "alice"
+                            },
+                            "dm_permissions": {
+                              "can_dm": true
+                            },
+                            "is_blue_verified": true,
+                            "legacy": {
+                              "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                              "default_profile": true,
+                              "default_profile_image": false,
+                              "description": "fake account",
+                              "entities": {
+                                "description": {
+                                  "urls": []
+                                }
+                              },
+                              "fast_followers_count": 0,
+                              "favourites_count": 1,
+                              "followers_count": 10,
+                              "friends_count": 5,
+                              "has_custom_timelines": false,
+                              "is_translator": false,
+                              "listed_count": 0,
+                              "media_count": 2,
+                              "normal_followers_count": 10,
+                              "pinned_tweet_ids_str": [],
+                              "possibly_sensitive": false,
+                              "profile_interstitial_type": "",
+                              "statuses_count": 12,
+                              "translator_type": "none",
+                              "want_retweets": false,
+                              "withheld_in_countries": []
+                            },
+                            "location": {
+                              "location": "Nowhere"
+                            },
+                            "media_permissions": {
+                              "can_media_tag": true
+                            },
+                            "parody_commentary_fan_label": "None",
+                            "profile_image_shape": "Circle",
+                            "privacy": {
+                              "protected": false
+                            },
+                            "relationship_perspectives": {
+                              "blocked_by": false,
+                              "blocking": false,
+                              "followed_by": false,
+                              "following": true
+                            },
+                            "tipjar_settings": {},
+                            "verification": {
+                              "verified": false
+                            }
+                          }
+                        }
+                      },
+                      "unmention_data": {},
+                      "edit_control": {
+                        "edit_tweet_ids": [
+                          "9000000000000000101"
+                        ],
+                        "editable_until_msecs": "1728591564000",
+                        "is_edit_eligible": true,
+                        "edits_remaining": "5"
+                      },
+                      "is_translatable": false,
+                      "views": {
+                        "count": "12345",
+                        "state": "EnabledWithCount"
+                      },
+                      "source": "<a href=\"https://fake.invalid\" rel=\"nofollow\">Fake Client</a>",
+                      "legacy": {
+                        "bookmark_count": 3,
+                        "bookmarked": false,
+                        "created_at": "Thu Oct 10 20:19:24 +0000 2024",
+                        "conversation_id_str": "9000000000000000101",
+                        "display_text_range": [
+                          0,
+                          65
+                        ],
+                        "entities": {
+                          "hashtags": [
+                            {
+                              "indices": [
+                                42,
+                                49
+                              ],
+                              "text": "sunset"
+                            }
+                          ],
+                          "symbols": [],
+                          "timestamps": [],
+                          "urls": [],
+                          "user_mentions": [
+                            {
+                              "id_str": "100002",
+                              "indices": [
+                                33,
+                                37
+                              ],
+                              "name": "Bob Example",
+                              "screen_name": "bob"
+                            }
+                          ],
+                          "media": [
+                            {
+                              "display_url": "pic.x.com/FAKEm1",
+                              "expanded_url": "https://x.com/fake/status/1/photo/1",
+                              "ext_media_availability": {
+                                "status": "Available"
+                              },
+                              "features": {},
+                              "id_str": "95000000000000000m1",
+                              "indices": [
+                                0,
+                                0
+                              ],
+                              "media_key": "3_FAKEm1",
+                              "media_results": {
+                                "result": {
+                                  "media_key": "3_FAKEm1"
+                                }
+                              },
+                              "original_info": {
+                                "focus_rects": [],
+                                "height": 1365,
+                                "width": 2048
+                              },
+                              "sizes": {
+                                "large": {
+                                  "h": 1365,
+                                  "w": 2048,
+                                  "resize": "fit"
+                                },
+                                "medium": {
+                                  "h": 819,
+                                  "w": 1229,
+                                  "resize": "fit"
+                                },
+                                "small": {
+                                  "h": 464,
+                                  "w": 696,
+                                  "resize": "fit"
+                                },
+                                "thumb": {
+                                  "h": 150,
+                                  "w": 150,
+                                  "resize": "crop"
+                                }
+                              },
+                              "url": "https://t.co/FAKEm1",
+                              "media_url_https": "https://pbs.twimg.com/media/FAKEm1.jpg",
+                              "type": "photo",
+                              "ext_alt_text": "A fake harbor"
+                            }
+                          ]
+                        },
+                        "favorite_count": 120,
+                        "favorited": true,
+                        "full_text": "Sunset over the fake harbor with @bob #sunset https://t.co/FAKEm1",
+                        "is_quote_status": false,
+                        "lang": "en",
+                        "possibly_sensitive": false,
+                        "possibly_sensitive_editable": true,
+                        "quote_count": 1,
+                        "reply_count": 2,
+                        "retweet_count": 4,
+                        "retweeted": false,
+                        "user_id_str": "100001",
+                        "id_str": "9000000000000000101",
+                        "extended_entities": {
+                          "media": [
+                            {
+                              "display_url": "pic.x.com/FAKEm1",
+                              "expanded_url": "https://x.com/fake/status/1/photo/1",
+                              "ext_media_availability": {
+                                "status": "Available"
+                              },
+                              "features": {},
+                              "id_str": "95000000000000000m1",
+                              "indices": [
+                                0,
+                                0
+                              ],
+                              "media_key": "3_FAKEm1",
+                              "media_results": {
+                                "result": {
+                                  "media_key": "3_FAKEm1"
+                                }
+                              },
+                              "original_info": {
+                                "focus_rects": [],
+                                "height": 1365,
+                                "width": 2048
+                              },
+                              "sizes": {
+                                "large": {
+                                  "h": 1365,
+                                  "w": 2048,
+                                  "resize": "fit"
+                                },
+                                "medium": {
+                                  "h": 819,
+                                  "w": 1229,
+                                  "resize": "fit"
+                                },
+                                "small": {
+                                  "h": 464,
+                                  "w": 696,
+                                  "resize": "fit"
+                                },
+                                "thumb": {
+                                  "h": 150,
+                                  "w": 150,
+                                  "resize": "crop"
+                                }
+                              },
+                              "url": "https://t.co/FAKEm1",
+                              "media_url_https": "https://pbs.twimg.com/media/FAKEm1.jpg",
+                              "type": "photo",
+                              "ext_alt_text": "A fake harbor"
+                            }
+                          ]
+                        }
+                      }
+                    }
+                  },
+                  "tweetDisplayType": "Tweet"
+                }
+              }
+            },
+            {
+              "entryId": "tweet-9000000000000000105",
+              "sortIndex": "7000000000000000499",
+              "content": {
+                "entryType": "TimelineTimelineItem",
+                "__typename": "TimelineTimelineItem",
+                "itemContent": {
+                  "itemType": "TimelineTweet",
+                  "__typename": "TimelineTweet",
+                  "tweet_results": {
+                    "result": {
+                      "__typename": "Tweet",
+                      "rest_id": "9000000000000000105",
+                      "core": {
+                        "user_results": {
+                          "result": {
+                            "__typename": "User",
+                            "id": "VXNlcjoxMDAwMDI=",
+                            "rest_id": "100002",
+                            "has_graduated_access": true,
+                            "is_blue_verified": false,
+                            "profile_image_shape": "Circle",
+                            "legacy": {
+                              "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                              "default_profile": true,
+                              "default_profile_image": false,
+                              "description": "fake account",
+                              "entities": {
+                                "description": {
+                                  "urls": []
+                                }
+                              },
+                              "fast_followers_count": 0,
+                              "favourites_count": 1,
+                              "followers_count": 10,
+                              "friends_count": 5,
+                              "has_custom_timelines": false,
+                              "is_translator": false,
+                              "listed_count": 0,
+                              "media_count": 2,
+                              "normal_followers_count": 10,
+                              "pinned_tweet_ids_str": [],
+                              "possibly_sensitive": false,
+                              "profile_interstitial_type": "",
+                              "statuses_count": 12,
+                              "translator_type": "none",
+                              "want_retweets": false,
+                              "withheld_in_countries": [],
+                              "name": "Bob Example",
+                              "screen_name": "bob",
+                              "verified": true,
+                              "protected": false,
+                              "following": false,
+                              "profile_image_url_https": "https://pbs.twimg.com/profile_images/FAKEbob/avatar_normal.jpg"
+                            }
+                          }
+                        }
+                      },
+                      "unmention_data": {},
+                      "edit_control": {
+                        "edit_tweet_ids": [
+                          "9000000000000000105"
+                        ],
+                        "editable_until_msecs": "1728591564000",
+                        "is_edit_eligible": true,
+                        "edits_remaining": "5"
+                      },
+                      "is_translatable": false,
+                      "views": {
+                        "count": "12345",
+                        "state": "EnabledWithCount"
+                      },
+                      "source": "<a href=\"https://fake.invalid\" rel=\"nofollow\">Fake Client</a>",
+                      "legacy": {
+                        "bookmark_count": 3,
+                        "bookmarked": false,
+                        "created_at": "Thu Oct 10 20:19:24 +0000 2024",
+                        "conversation_id_str": "9000000000000000105",
+                        "display_text_range": [
+                          14,
+                          25
+                        ],
+                        "entities": {
+                          "hashtags": [],
+                          "symbols": [],
+                          "timestamps": [],
+                          "urls": [],
+                          "user_mentions": [
+                            {
+                              "id_str": "100001",
+                              "indices": [
+                                0,
+                                6
+                              ],
+                              "name": "Alice Example",
+                              "screen_name": "alice"
+                            },
+                            {
+                              "id_str": "100003",
+                              "indices": [
+                                7,
+                                13
+                              ],
+                              "name": "Carol Example",
+                              "screen_name": "carol"
+                            }
+                          ]
+                        },
+                        "favorite_count": 120,
+                        "favorited": false,
+                        "full_text": "@alice @carol Great shot!",
+                        "is_quote_status": false,
+                        "lang": "en",
+                        "possibly_sensitive": false,
+                        "possibly_sensitive_editable": true,
+                        "quote_count": 1,
+                        "reply_count": 2,
+                        "retweet_count": 4,
+                        "retweeted": false,
+                        "user_id_str": "100002",
+                        "id_str": "9000000000000000105",
+                        "in_reply_to_screen_name": "alice",
+                        "in_reply_to_status_id_str": "9000000000000000101",
+                        "in_reply_to_user_id_str": "100001"
+                      }
+                    }
+                  },
+                  "tweetDisplayType": "Tweet"
+                }
+              }
+            },
+            {
+              "entryId": "conversationthread-9000000000000000201",
+              "sortIndex": "7000000000000000399",
+              "content": {
+                "entryType": "TimelineTimelineModule",
+                "__typename": "TimelineTimelineModule",
+                "displayType": "VerticalConversation",
+                "items": [
+                  {
+                    "entryId": "conversationthread-9000000000000000201-tweet-9000000000000000201",
+                    "item": {
+                      "itemContent": {
+                        "itemType": "TimelineTweet",
+                        "__typename": "TimelineTweet",
+                        "tweet_results": {
+                          "result": {
+                            "__typename": "Tweet",
+                            "rest_id": "9000000000000000201",
+                            "core": {
+                              "user_results": {
+                                "result": {
+                                  "__typename": "User",
+                                  "id": "VXNlcjoxMDAwMDM=",
+                                  "rest_id": "100003",
+                                  "affiliates_highlighted_label": {},
+                                  "avatar": {
+                                    "image_url": "https://pbs.twimg.com/profile_images/FAKEcarol/avatar_normal.jpg"
+                                  },
+                                  "core": {
+                                    "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                                    "name": "Carol Example",
+                                    "screen_name": "carol"
+                                  },
+                                  "dm_permissions": {
+                                    "can_dm": true
+                                  },
+                                  "is_blue_verified": false,
+                                  "legacy": {
+                                    "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                                    "default_profile": true,
+                                    "default_profile_image": false,
+                                    "description": "fake account",
+                                    "entities": {
+                                      "description": {
+                                        "urls": []
+                                      }
+                                    },
+                                    "fast_followers_count": 0,
+                                    "favourites_count": 1,
+                                    "followers_count": 10,
+                                    "friends_count": 5,
+                                    "has_custom_timelines": false,
+                                    "is_translator": false,
+                                    "listed_count": 0,
+                                    "media_count": 2,
+                                    "normal_followers_count": 10,
+                                    "pinned_tweet_ids_str": [],
+                                    "possibly_sensitive": false,
+                                    "profile_interstitial_type": "",
+                                    "statuses_count": 12,
+                                    "translator_type": "none",
+                                    "want_retweets": false,
+                                    "withheld_in_countries": []
+                                  },
+                                  "location": {
+                                    "location": "Nowhere"
+                                  },
+                                  "media_permissions": {
+                                    "can_media_tag": true
+                                  },
+                                  "parody_commentary_fan_label": "None",
+                                  "profile_image_shape": "Circle",
+                                  "privacy": {
+                                    "protected": false
+                                  },
+                                  "relationship_perspectives": {
+                                    "blocked_by": false,
+                                    "blocking": false,
+                                    "followed_by": false,
+                                    "following": false
+                                  },
+                                  "tipjar_settings": {},
+                                  "verification": {
+                                    "verified": false
+                                  }
+                                }
+                              }
+                            },
+                            "unmention_data": {},
+                            "edit_control": {
+                              "edit_tweet_ids": [
+                                "9000000000000000201"
+                              ],
+                              "editable_until_msecs": "1728591564000",
+                              "is_edit_eligible": true,
+                              "edits_remaining": "5"
+                            },
+                            "is_translatable": false,
+                            "views": {
+                              "count": "12345",
+                              "state": "EnabledWithCount"
+                            },
+                            "source": "<a href=\"https://fake.invalid\" rel=\"nofollow\">Fake Client</a>",
+                            "legacy": {
+                              "bookmark_count": 3,
+                              "bookmarked": false,
+                              "created_at": "Thu Oct 10 20:19:24 +0000 2024",
+                              "conversation_id_str": "9000000000000000201",
+                              "display_text_range": [
+                                5,
+                                26
+                              ],
+                              "entities": {
+                                "hashtags": [],
+                                "symbols": [],
+                                "timestamps": [],
+                                "urls": [],
+                                "user_mentions": []
+                              },
+                              "favorite_count": 120,
+                              "favorited": false,
+                              "full_text": "@bob Fake reply from carol",
+                              "is_quote_status": false,
+                              "lang": "en",
+                              "possibly_sensitive": false,
+                              "possibly_sensitive_editable": true,
+                              "quote_count": 1,
+                              "reply_count": 2,
+                              "retweet_count": 4,
+                              "retweeted": false,
+                              "user_id_str": "100003",
+                              "id_str": "9000000000000000201",
+                              "in_reply_to_screen_name": "bob",
+                              "in_reply_to_status_id_str": "9000000000000000105",
+                              "in_reply_to_user_id_str": "100002"
+                            }
+                          }
+                        },
+                        "tweetDisplayType": "Tweet"
+                      }
+                    }
+                  },
+                  {
+                    "entryId": "conversationthread-9000000000000000201-tweet-9000000000000000202",
+                    "item": {
+                      "itemContent": {
+                        "itemType": "TimelineTweet",
+                        "__typename": "TimelineTweet",
+                        "tweet_results": {
+                          "result": {
+                            "__typename": "Tweet",
+                            "rest_id": "9000000000000000202",
+                            "core": {
+                              "user_results": {
+                                "result": {
+                                  "__typename": "User",
+                                  "id": "VXNlcjoxMDAwMDI=",
+                                  "rest_id": "100002",
+                                  "has_graduated_access": true,
+                                  "is_blue_verified": false,
+                                  "profile_image_shape": "Circle",
+                                  "legacy": {
+                                    "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                                    "default_profile": true,
+                                    "default_profile_image": false,
+                                    "description": "fake account",
+                                    "entities": {
+                                      "description": {
+                                        "urls": []
+                                      }
+                                    },
+                                    "fast_followers_count": 0,
+                                    "favourites_count": 1,
+                                    "followers_count": 10,
+                                    "friends_count": 5,
+                                    "has_custom_timelines": false,
+                                    "is_translator": false,
+                                    "listed_count": 0,
+                                    "media_count": 2,
+                                    "normal_followers_count": 10,
+                                    "pinned_tweet_ids_str": [],
+                                    "possibly_sensitive": false,
+                                    "profile_interstitial_type": "",
+                                    "statuses_count": 12,
+                                    "translator_type": "none",
+                                    "want_retweets": false,
+                                    "withheld_in_countries": [],
+                                    "name": "Bob Example",
+                                    "screen_name": "bob",
+                                    "verified": true,
+                                    "protected": false,
+                                    "following": false,
+                                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/FAKEbob/avatar_normal.jpg"
+                                  }
+                                }
+                              }
+                            },
+                            "unmention_data": {},
+                            "edit_control": {
+                              "edit_tweet_ids": [
+                                "9000000000000000202"
+                              ],
+                              "editable_until_msecs": "1728591564000",
+                              "is_edit_eligible": true,
+                              "edits_remaining": "5"
+                            },
+                            "is_translatable": false,
+                            "views": {
+                              "count": "12345",
+                              "state": "EnabledWithCount"
+                            },
+                            "source": "<a href=\"https://fake.invalid\" rel=\"nofollow\">Fake Client</a>",
+                            "legacy": {
+                              "bookmark_count": 3,
+                              "bookmarked": false,
+                              "created_at": "Thu Oct 10 20:19:24 +0000 2024",
+                              "conversation_id_str": "9000000000000000202",
+                              "display_text_range": [
+                                7,
+                                25
+                              ],
+                              "entities": {
+                                "hashtags": [],
+                                "symbols": [],
+                                "timestamps": [],
+                                "urls": [],
+                                "user_mentions": []
+                              },
+                              "favorite_count": 120,
+                              "favorited": false,
+                              "full_text": "@carol Fake counter reply",
+                              "is_quote_status": false,
+                              "lang": "en",
+                              "possibly_sensitive": false,
+                              "possibly_sensitive_editable": true,
+                              "quote_count": 1,
+                              "reply_count": 2,
+                              "retweet_count": 4,
+                              "retweeted": false,
+                              "user_id_str": "100002",
+                              "id_str": "9000000000000000202",
+                              "in_reply_to_screen_name": "carol",
+                              "in_reply_to_status_id_str": "9000000000000000201",
+                              "in_reply_to_user_id_str": "100003"
+                            }
+                          }
+                        },
+                        "tweetDisplayType": "Tweet"
+                      }
+                    }
+                  },
+                  {
+                    "entryId": "conversationthread-9000000000000000201-cursor-showmore-fake",
+                    "item": {
+                      "itemContent": {
+                        "itemType": "TimelineTimelineCursor",
+                        "__typename": "TimelineTimelineCursor",
+                        "cursorType": "ShowMore",
+                        "value": "FAKE_SHOWMORE",
+                        "displayTreatment": {
+                          "actionText": "Show more replies"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "entryId": "promoted-tweet-9000000000000000205-fakepromo",
+              "sortIndex": "7000000000000000300",
+              "content": {
+                "entryType": "TimelineTimelineItem",
+                "__typename": "TimelineTimelineItem",
+                "itemContent": {
+                  "itemType": "TimelineTweet",
+                  "__typename": "TimelineTweet",
+                  "tweet_results": {
+                    "result": {
+                      "__typename": "Tweet",
+                      "rest_id": "9000000000000000205",
+                      "core": {
+                        "user_results": {
+                          "result": {
+                            "__typename": "User",
+                            "id": "VXNlcjoxMDAwMDQ=",
+                            "rest_id": "100004",
+                            "affiliates_highlighted_label": {},
+                            "avatar": {
+                              "image_url": "https://pbs.twimg.com/profile_images/FAKEdave/avatar_normal.jpg"
+                            },
+                            "core": {
+                              "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                              "name": "Dave Example",
+                              "screen_name": "dave"
+                            },
+                            "dm_permissions": {
+                              "can_dm": true
+                            },
+                            "is_blue_verified": false,
+                            "legacy": {
+                              "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                              "default_profile": true,
+                              "default_profile_image": false,
+                              "description": "fake account",
+                              "entities": {
+                                "description": {
+                                  "urls": []
+                                }
+                              },
+                              "fast_followers_count": 0,
+                              "favourites_count": 1,
+                              "followers_count": 10,
+                              "friends_count": 5,
+                              "has_custom_timelines": false,
+                              "is_translator": false,
+                              "listed_count": 0,
+                              "media_count": 2,
+                              "normal_followers_count": 10,
+                              "pinned_tweet_ids_str": [],
+                              "possibly_sensitive": false,
+                              "profile_interstitial_type": "",
+                              "statuses_count": 12,
+                              "translator_type": "none",
+                              "want_retweets": false,
+                              "withheld_in_countries": []
+                            },
+                            "location": {
+                              "location": "Nowhere"
+                            },
+                            "media_permissions": {
+                              "can_media_tag": true
+                            },
+                            "parody_commentary_fan_label": "None",
+                            "profile_image_shape": "Circle",
+                            "privacy": {
+                              "protected": false
+                            },
+                            "tipjar_settings": {},
+                            "verification": {
+                              "verified": false
+                            }
+                          }
+                        }
+                      },
+                      "unmention_data": {},
+                      "edit_control": {
+                        "edit_tweet_ids": [
+                          "9000000000000000205"
+                        ],
+                        "editable_until_msecs": "1728591564000",
+                        "is_edit_eligible": true,
+                        "edits_remaining": "5"
+                      },
+                      "is_translatable": false,
+                      "views": {
+                        "count": "12345",
+                        "state": "EnabledWithCount"
+                      },
+                      "source": "<a href=\"https://fake.invalid\" rel=\"nofollow\">Fake Client</a>",
+                      "legacy": {
+                        "bookmark_count": 3,
+                        "bookmarked": false,
+                        "created_at": "Thu Oct 10 20:19:24 +0000 2024",
+                        "conversation_id_str": "9000000000000000205",
+                        "display_text_range": [
+                          0,
+                          15
+                        ],
+                        "entities": {
+                          "hashtags": [],
+                          "symbols": [],
+                          "timestamps": [],
+                          "urls": [],
+                          "user_mentions": []
+                        },
+                        "favorite_count": 120,
+                        "favorited": false,
+                        "full_text": "Another fake ad",
+                        "is_quote_status": false,
+                        "lang": "en",
+                        "possibly_sensitive": false,
+                        "possibly_sensitive_editable": true,
+                        "quote_count": 1,
+                        "reply_count": 2,
+                        "retweet_count": 4,
+                        "retweeted": false,
+                        "user_id_str": "100004",
+                        "id_str": "9000000000000000205"
+                      }
+                    }
+                  },
+                  "tweetDisplayType": "Tweet",
+                  "promotedMetadata": {
+                    "advertiser_results": {
+                      "result": {
+                        "__typename": "User",
+                        "rest_id": "1",
+                        "legacy": {
+                          "name": "Fake Ads",
+                          "screen_name": "fakeads"
+                        }
+                      }
+                    },
+                    "disclosure_type": "NoDisclosure",
+                    "experiment_values": [],
+                    "impressionId": "fake-impression",
+                    "clickTrackingInfo": {
+                      "urlParams": []
+                    }
+                  }
+                }
+              }
+            },
+            {
+              "entryId": "conversationthread-9000000000000000203",
+              "sortIndex": "7000000000000000397",
+              "content": {
+                "entryType": "TimelineTimelineModule",
+                "__typename": "TimelineTimelineModule",
+                "displayType": "VerticalConversation",
+                "items": [
+                  {
+                    "entryId": "conversationthread-9000000000000000203-tweet-9000000000000000203",
+                    "item": {
+                      "itemContent": {
+                        "itemType": "TimelineTweet",
+                        "__typename": "TimelineTweet",
+                        "tweet_results": {
+                          "result": {
+                            "__typename": "Tweet",
+                            "rest_id": "9000000000000000203",
+                            "core": {
+                              "user_results": {
+                                "result": {
+                                  "__typename": "User",
+                                  "id": "VXNlcjoxMDAwMDE=",
+                                  "rest_id": "100001",
+                                  "affiliates_highlighted_label": {},
+                                  "avatar": {
+                                    "image_url": "https://pbs.twimg.com/profile_images/FAKEalice/avatar_normal.jpg"
+                                  },
+                                  "core": {
+                                    "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                                    "name": "Alice Example",
+                                    "screen_name": "alice"
+                                  },
+                                  "dm_permissions": {
+                                    "can_dm": true
+                                  },
+                                  "is_blue_verified": true,
+                                  "legacy": {
+                                    "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                                    "default_profile": true,
+                                    "default_profile_image": false,
+                                    "description": "fake account",
+                                    "entities": {
+                                      "description": {
+                                        "urls": []
+                                      }
+                                    },
+                                    "fast_followers_count": 0,
+                                    "favourites_count": 1,
+                                    "followers_count": 10,
+                                    "friends_count": 5,
+                                    "has_custom_timelines": false,
+                                    "is_translator": false,
+                                    "listed_count": 0,
+                                    "media_count": 2,
+                                    "normal_followers_count": 10,
+                                    "pinned_tweet_ids_str": [],
+                                    "possibly_sensitive": false,
+                                    "profile_interstitial_type": "",
+                                    "statuses_count": 12,
+                                    "translator_type": "none",
+                                    "want_retweets": false,
+                                    "withheld_in_countries": []
+                                  },
+                                  "location": {
+                                    "location": "Nowhere"
+                                  },
+                                  "media_permissions": {
+                                    "can_media_tag": true
+                                  },
+                                  "parody_commentary_fan_label": "None",
+                                  "profile_image_shape": "Circle",
+                                  "privacy": {
+                                    "protected": false
+                                  },
+                                  "relationship_perspectives": {
+                                    "blocked_by": false,
+                                    "blocking": false,
+                                    "followed_by": false,
+                                    "following": true
+                                  },
+                                  "tipjar_settings": {},
+                                  "verification": {
+                                    "verified": false
+                                  }
+                                }
+                              }
+                            },
+                            "unmention_data": {},
+                            "edit_control": {
+                              "edit_tweet_ids": [
+                                "9000000000000000203"
+                              ],
+                              "editable_until_msecs": "1728591564000",
+                              "is_edit_eligible": true,
+                              "edits_remaining": "5"
+                            },
+                            "is_translatable": false,
+                            "views": {
+                              "count": "12345",
+                              "state": "EnabledWithCount"
+                            },
+                            "source": "<a href=\"https://fake.invalid\" rel=\"nofollow\">Fake Client</a>",
+                            "legacy": {
+                              "bookmark_count": 3,
+                              "bookmarked": false,
+                              "created_at": "Thu Oct 10 20:19:24 +0000 2024",
+                              "conversation_id_str": "9000000000000000203",
+                              "display_text_range": [
+                                5,
+                                22
+                              ],
+                              "entities": {
+                                "hashtags": [],
+                                "symbols": [],
+                                "timestamps": [],
+                                "urls": [],
+                                "user_mentions": []
+                              },
+                              "favorite_count": 120,
+                              "favorited": false,
+                              "full_text": "@bob a lone fake reply",
+                              "is_quote_status": false,
+                              "lang": "en",
+                              "possibly_sensitive": false,
+                              "possibly_sensitive_editable": true,
+                              "quote_count": 1,
+                              "reply_count": 2,
+                              "retweet_count": 4,
+                              "retweeted": false,
+                              "user_id_str": "100001",
+                              "id_str": "9000000000000000203",
+                              "in_reply_to_screen_name": "bob",
+                              "in_reply_to_status_id_str": "9000000000000000105",
+                              "in_reply_to_user_id_str": "100002"
+                            }
+                          }
+                        },
+                        "tweetDisplayType": "Tweet"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "entryId": "tweetdetailrelatedtweets-fake",
+              "sortIndex": "7000000000000000200",
+              "content": {
+                "entryType": "TimelineTimelineModule",
+                "__typename": "TimelineTimelineModule",
+                "displayType": "Vertical",
+                "items": [
+                  {
+                    "entryId": "tweetdetailrelatedtweets-fake-tweet-9000000000000000206",
+                    "item": {
+                      "itemContent": {
+                        "itemType": "TimelineTweet",
+                        "__typename": "TimelineTweet",
+                        "tweet_results": {
+                          "result": {
+                            "__typename": "Tweet",
+                            "rest_id": "9000000000000000206",
+                            "core": {
+                              "user_results": {
+                                "result": {
+                                  "__typename": "User",
+                                  "id": "VXNlcjoxMDAwMDU=",
+                                  "rest_id": "100005",
+                                  "has_graduated_access": true,
+                                  "is_blue_verified": false,
+                                  "profile_image_shape": "Circle",
+                                  "legacy": {
+                                    "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                                    "default_profile": true,
+                                    "default_profile_image": false,
+                                    "description": "fake account",
+                                    "entities": {
+                                      "description": {
+                                        "urls": []
+                                      }
+                                    },
+                                    "fast_followers_count": 0,
+                                    "favourites_count": 1,
+                                    "followers_count": 10,
+                                    "friends_count": 5,
+                                    "has_custom_timelines": false,
+                                    "is_translator": false,
+                                    "listed_count": 0,
+                                    "media_count": 2,
+                                    "normal_followers_count": 10,
+                                    "pinned_tweet_ids_str": [],
+                                    "possibly_sensitive": false,
+                                    "profile_interstitial_type": "",
+                                    "statuses_count": 12,
+                                    "translator_type": "none",
+                                    "want_retweets": false,
+                                    "withheld_in_countries": [],
+                                    "name": "Erin Example",
+                                    "screen_name": "erin_x",
+                                    "verified": false,
+                                    "protected": false,
+                                    "profile_image_url_https": "https://pbs.twimg.com/profile_images/FAKEerin_x/avatar_normal.jpg"
+                                  }
+                                }
+                              }
+                            },
+                            "unmention_data": {},
+                            "edit_control": {
+                              "edit_tweet_ids": [
+                                "9000000000000000206"
+                              ],
+                              "editable_until_msecs": "1728591564000",
+                              "is_edit_eligible": true,
+                              "edits_remaining": "5"
+                            },
+                            "is_translatable": false,
+                            "views": {
+                              "count": "12345",
+                              "state": "EnabledWithCount"
+                            },
+                            "source": "<a href=\"https://fake.invalid\" rel=\"nofollow\">Fake Client</a>",
+                            "legacy": {
+                              "bookmark_count": 3,
+                              "bookmarked": false,
+                              "created_at": "Thu Oct 10 20:19:24 +0000 2024",
+                              "conversation_id_str": "9000000000000000206",
+                              "display_text_range": [
+                                0,
+                                17
+                              ],
+                              "entities": {
+                                "hashtags": [],
+                                "symbols": [],
+                                "timestamps": [],
+                                "urls": [],
+                                "user_mentions": []
+                              },
+                              "favorite_count": 120,
+                              "favorited": false,
+                              "full_text": "Related fake post",
+                              "is_quote_status": false,
+                              "lang": "en",
+                              "possibly_sensitive": false,
+                              "possibly_sensitive_editable": true,
+                              "quote_count": 1,
+                              "reply_count": 2,
+                              "retweet_count": 4,
+                              "retweeted": false,
+                              "user_id_str": "100005",
+                              "id_str": "9000000000000000206"
+                            }
+                          }
+                        },
+                        "tweetDisplayType": "Tweet"
+                      }
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "entryId": "cursor-bottom-fake",
+              "sortIndex": "7000000000000000100",
+              "content": {
+                "entryType": "TimelineTimelineItem",
+                "__typename": "TimelineTimelineItem",
+                "itemContent": {
+                  "itemType": "TimelineTimelineCursor",
+                  "__typename": "TimelineTimelineCursor",
+                  "cursorType": "Bottom",
+                  "value": "FAKE_DETAIL_BOTTOM",
+                  "stopOnEmptyResponse": false
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "TimelineAddToModule",
+          "moduleEntryId": "conversationthread-9000000000000000201",
+          "prepend": false,
+          "moduleItems": [
+            {
+              "entryId": "conversationthread-9000000000000000201-tweet-9000000000000000204",
+              "item": {
+                "itemContent": {
+                  "itemType": "TimelineTweet",
+                  "__typename": "TimelineTweet",
+                  "tweet_results": {
+                    "result": {
+                      "__typename": "Tweet",
+                      "rest_id": "9000000000000000204",
+                      "core": {
+                        "user_results": {
+                          "result": {
+                            "__typename": "User",
+                            "id": "VXNlcjoxMDAwMDQ=",
+                            "rest_id": "100004",
+                            "affiliates_highlighted_label": {},
+                            "avatar": {
+                              "image_url": "https://pbs.twimg.com/profile_images/FAKEdave/avatar_normal.jpg"
+                            },
+                            "core": {
+                              "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                              "name": "Dave Example",
+                              "screen_name": "dave"
+                            },
+                            "dm_permissions": {
+                              "can_dm": true
+                            },
+                            "is_blue_verified": false,
+                            "legacy": {
+                              "created_at": "Mon Jan 01 00:00:00 +0000 2018",
+                              "default_profile": true,
+                              "default_profile_image": false,
+                              "description": "fake account",
+                              "entities": {
+                                "description": {
+                                  "urls": []
+                                }
+                              },
+                              "fast_followers_count": 0,
+                              "favourites_count": 1,
+                              "followers_count": 10,
+                              "friends_count": 5,
+                              "has_custom_timelines": false,
+                              "is_translator": false,
+                              "listed_count": 0,
+                              "media_count": 2,
+                              "normal_followers_count": 10,
+                              "pinned_tweet_ids_str": [],
+                              "possibly_sensitive": false,
+                              "profile_interstitial_type": "",
+                              "statuses_count": 12,
+                              "translator_type": "none",
+                              "want_retweets": false,
+                              "withheld_in_countries": []
+                            },
+                            "location": {
+                              "location": "Nowhere"
+                            },
+                            "media_permissions": {
+                              "can_media_tag": true
+                            },
+                            "parody_commentary_fan_label": "None",
+                            "profile_image_shape": "Circle",
+                            "privacy": {
+                              "protected": false
+                            },
+                            "tipjar_settings": {},
+                            "verification": {
+                              "verified": false
+                            }
+                          }
+                        }
+                      },
+                      "unmention_data": {},
+                      "edit_control": {
+                        "edit_tweet_ids": [
+                          "9000000000000000204"
+                        ],
+                        "editable_until_msecs": "1728591564000",
+                        "is_edit_eligible": true,
+                        "edits_remaining": "5"
+                      },
+                      "is_translatable": false,
+                      "views": {
+                        "count": "12345",
+                        "state": "EnabledWithCount"
+                      },
+                      "source": "<a href=\"https://fake.invalid\" rel=\"nofollow\">Fake Client</a>",
+                      "legacy": {
+                        "bookmark_count": 3,
+                        "bookmarked": false,
+                        "created_at": "Thu Oct 10 20:19:24 +0000 2024",
+                        "conversation_id_str": "9000000000000000204",
+                        "display_text_range": [
+                          7,
+                          18
+                        ],
+                        "entities": {
+                          "hashtags": [],
+                          "symbols": [],
+                          "timestamps": [],
+                          "urls": [],
+                          "user_mentions": []
+                        },
+                        "favorite_count": 120,
+                        "favorited": false,
+                        "full_text": "@carol added later",
+                        "is_quote_status": false,
+                        "lang": "en",
+                        "possibly_sensitive": false,
+                        "possibly_sensitive_editable": true,
+                        "quote_count": 1,
+                        "reply_count": 2,
+                        "retweet_count": 4,
+                        "retweeted": false,
+                        "user_id_str": "100004",
+                        "id_str": "9000000000000000204",
+                        "in_reply_to_screen_name": "carol",
+                        "in_reply_to_status_id_str": "9000000000000000201",
+                        "in_reply_to_user_id_str": "100003"
+                      }
+                    }
+                  },
+                  "tweetDisplayType": "Tweet"
+                }
+              }
+            }
+          ]
+        }
+      ],
+      "metadata": {
+        "reader_mode_config": {
+          "is_reader_mode_available": false
+        }
+      }
+    }
+  }
+}
