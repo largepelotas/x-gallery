@@ -2,6 +2,7 @@
   "name": "x-gallery",
   "version": "0.1.0",
   "private": true,
+  "license": "MIT",
   "description": "Masonry gallery overlay for the x.com home timeline (Chrome/Brave MV3 extension).",
   "scripts": {
     "test": "node --test"
