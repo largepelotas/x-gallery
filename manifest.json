@@ -3,16 +3,32 @@
   "name": "X Gallery",
   "version": "0.1.0",
   "description": "A masonry gallery overlay for the x.com home timeline. Reads only what X already loads.",
-  "permissions": ["storage"],
+  "minimum_chrome_version": "111",
+  "homepage_url": "https://github.com/largepelotas/x-gallery",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
   "content_scripts": [
     {
-      "matches": ["https://x.com/*"],
-      "js": ["src/hook.js"],
+      "matches": [
+        "https://x.com/*"
+      ],
+      "js": [
+        "src/hook.js"
+      ],
       "run_at": "document_start",
       "world": "MAIN"
     },
     {
-      "matches": ["https://x.com/*"],
+      "matches": [
+        "https://x.com/*"
+      ],
       "js": [
         "src/parse.js",
         "src/store.js",

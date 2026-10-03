@@ -76,6 +76,7 @@
     let prevFocus = null;
     let ancRendered = [];
     const cache = new Map(); // focal id -> model, so reopening works without a request
+    const CACHE_MAX = 40; // every TweetDetail X loads lands here, so it is bounded
     const byId = new Map(); // post id -> Set<element> currently rendered
     const groupEls = new Map(); // group key -> { el, count }
 
@@ -365,12 +366,23 @@
       if (back && back.isConnected && typeof back.focus === "function") back.focus({ preventScroll: true });
     }
 
+    // Oldest threads go first; the one just added and the one on screen stay.
+    function trimCache(keep) {
+      for (const k of cache.keys()) {
+        if (cache.size <= CACHE_MAX) break;
+        if (k !== keep && !(open && focal && focal.id === k)) cache.delete(k);
+      }
+    }
+
     function ingestDetail(parsed, focalId) {
       if (!parsed) return;
       const fid = String(focalId ?? parsed.focalId ?? "");
       if (!fid) return;
       let m = cache.get(fid);
-      if (!m) cache.set(fid, (m = newModel(fid)));
+      if (!m) {
+        cache.set(fid, (m = newModel(fid)));
+        trimCache(fid);
+      }
       mergeDetail(m, parsed, fid);
       if (open && focal && focal.id === fid) {
         model = m;

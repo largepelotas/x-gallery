@@ -149,15 +149,29 @@
   const watched = new Set();
   let videoIO = null;
 
+  // A paused grid video still holds one of Chromium's ~75 media players per tab,
+  // and X's own videos share that budget. So a video off screen gives its source
+  // back (the poster stays up) and takes it again on the way in.
+  function releaseVideo(v) {
+    v.pause();
+    const src = v.getAttribute("src");
+    if (src) {
+      v.dataset.src = src;
+      v.removeAttribute("src");
+      v.load(); // drops the media player
+    }
+  }
+
   function playVideo(v) {
     try {
+      if (!v.getAttribute("src") && v.dataset.src) v.src = v.dataset.src;
       const p = v.play();
       if (p && p.catch) p.catch(() => {}); // autoplay refused: the poster stays up
     } catch {}
   }
 
   function unwatchVideo(v) {
-    v.pause();
+    releaseVideo(v);
     watched.delete(v);
     if (videoIO) videoIO.unobserve(v);
   }
@@ -170,7 +184,7 @@
             const v = e.target;
             if (!v.isConnected) unwatchVideo(v);
             else if (e.isIntersecting) playVideo(v);
-            else v.pause();
+            else releaseVideo(v);
           }
         },
         { threshold: 0.25 }

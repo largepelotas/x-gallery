@@ -2,3 +2,6 @@
 # by design, and the easiest place to leak something by accident.
 .agents/scratch/*
 !.agents/scratch/README.md
+
+# Local Claude Code config: agents, launch config.
+.claude/

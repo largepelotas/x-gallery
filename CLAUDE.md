@@ -57,7 +57,9 @@ that every file codes against.
   DESIGN.md §Files). `parse.js` and `store.js` also export via `module.exports`
   so Node tests can load them.
 - `test/`: `node:test` suites plus synthetic GraphQL fixtures.
-- `dev/`: the harness. It's not in the manifest and never ships.
+- `dev/`: the harness and `make-icons.mjs`, which renders `icons/`. Neither is
+  in the manifest's scripts.
+- `docs/`: README screenshots, taken from the harness.
 
 ## Fragile by nature
 
